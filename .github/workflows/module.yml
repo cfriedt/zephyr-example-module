@@ -2,19 +2,18 @@ name: Zephyr Example Module CI
 
 on:
   push:
-    branches: [ zephyr ]
+    branches: [zephyr]
   pull_request:
-    branches: [ zephyr ]
+    branches: [zephyr]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     container:
       image: "zephyrprojectrtos/ci:v0.11.10"
     steps:
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
       with:
         path: zephyr-example-module
     - name: Setup Environment
