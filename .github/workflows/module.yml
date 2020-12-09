@@ -22,7 +22,7 @@ jobs:
         west update
         cd zephyr
         export ZEPHYR_EXTRA_MODULES=$PWD/../zephyr-sample-module
-        source zephyr-env.sh
+        . zephyr-env.sh
     - name: Build & Run Tests
       run: |
         west build -b native_posix -p always -t run tests/zephyr_example_module
