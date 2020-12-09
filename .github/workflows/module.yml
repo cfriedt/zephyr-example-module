@@ -1,0 +1,32 @@
+name: Zephyr Example Module CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: "zephyrprojectrtos/ci:v0.11.10"
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v2
+      with:
+        path: zephyr-example-module
+    - name: Setup Environment
+      run: |
+        west init -l zephyr-example-module
+        west update
+        cd zephyr
+        export ZEPHYR_EXTRA_MODULES=$PWD/../zephyr-sample-module
+        source zephyr-env.sh
+    - name: Build & Run Tests
+      run: |
+        west build -b native_posix -p always -t run tests/zephyr_example_module
+    - name: Build and Run Samples
+      run: |
+        west build -b native_posix -p always -t run samples/zephyr_example_module

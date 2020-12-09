@@ -1,0 +1,15 @@
+# West file for Zephyr Example Module
+#
+# Copyright (c) 2020, Friedt Professional Engineering Services, Inc
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: 310d149d8b612035a53e0d71204fa9cd29a131ab
+      import: true

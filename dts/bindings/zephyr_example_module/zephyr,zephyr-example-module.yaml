@@ -1,0 +1,27 @@
+# Devicetree Bindings for Zephyr Example Module
+#
+# Copyright (c) 2020, Friedt Professional Engineering Services, Inc
+#
+# SPDX-License-Identifier: Apache-2.0
+
+description: Devicetree Bindings for Zephyr Example Module
+
+compatible: "zephyr,zephyr-example-module"
+
+include: [base.yaml]
+
+properties:
+    "max-iterations":
+      type: int
+      required: true
+      description: Maximum number of Fibonacci sequence values to calculate before restarting
+    "#address-cells":
+      type: int
+      required: false
+      default: 1
+      const: 1
+    "#size-cells":
+      type: int
+      required: false
+      default: 0
+      const: 0

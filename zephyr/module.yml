@@ -1,0 +1,19 @@
+# West YAML for Zephyr Example Module
+#
+# Copyright (c) 2020, Friedt Professional Engineering Services, Inc
+#
+# SPDX-License-Identifier: Apache-2.0
+
+build:
+  settings:
+    # These may be removed if unused
+    board_root: .
+    dts_root: .
+    soc_root: .
+    arch_root: .
+  cmake: .
+  kconfig: subsys/zephyr_example_module/Kconfig
+samples:
+  - samples
+tests:
+  - tests

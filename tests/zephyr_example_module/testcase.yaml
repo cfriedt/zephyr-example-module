@@ -1,0 +1,5 @@
+common:
+  tags: introduction
+tests:
+  zephyr_example_module:
+    min_ram: 8
