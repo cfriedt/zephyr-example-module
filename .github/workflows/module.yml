@@ -2,9 +2,9 @@ name: Zephyr Example Module CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ zephyr ]
   pull_request:
-    branches: [ main ]
+    branches: [ zephyr ]
 
 jobs:
   build:
