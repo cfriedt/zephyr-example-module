@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [zephyr]
+  pull_request:
+    branches: [zephyr]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: "zephyrprojectrtos/ci:v0.11.10"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: zephyr-example-module
+    - name: Setup Environment
+      run: |
+        west init -l zephyr-example-module
+        west update
+    - name: Build & Run Tests
+      run: |
+        cd zephyr
+        export ZEPHYR_BASE=`pwd`
+        export ZEPHYR_EXTRA_MODULES=`pwd`/../zephyr-sample-module
+        export PATH=`pwd`/scripts:$PATH
+        export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
+        export ZEPHYR_SDK_INSTALL_DIR=/opt/sdk/zephyr-sdk-0.11.4
+        west build -b native_posix -p always -t run ../zephyr-example-module/tests/zephyr_example_module
+    - name: Build Sample
+      run: |
+        cd zephyr
+        export ZEPHYR_BASE=`pwd`
+        export ZEPHYR_EXTRA_MODULES=`pwd`/../zephyr-sample-module
+        export PATH=`pwd`/scripts:$PATH
+        export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
+        export ZEPHYR_SDK_INSTALL_DIR=/opt/sdk/zephyr-sdk-0.11.4
+        west build -b native_posix -p always ../zephyr-example-module/samples/zephyr_example_module
+    - name: Run Sample Applications in Sanity Check Script
+      run: |
+        cd zephyr
+        export ZEPHYR_BASE=`pwd`
+        export ZEPHYR_EXTRA_MODULES=`pwd`/../zephyr-sample-module
+        export PATH=`pwd`/scripts:$PATH
+        export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
+        export ZEPHYR_SDK_INSTALL_DIR=/opt/sdk/zephyr-sdk-0.11.4
+        ./scripts/sanitycheck -T ../zephyr-example-module/samples/zephyr_example_module

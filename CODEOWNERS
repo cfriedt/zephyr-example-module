@@ -1,0 +1,4 @@
+subsys/fibonacci	@cfriedt
+tests/fibonacci		@cfriedt
+dts/bindings/fibonacci	@cfriedt
+

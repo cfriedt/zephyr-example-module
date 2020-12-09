@@ -1,0 +1,18 @@
+# Kconfig - Zephyr Example Module configuration options
+#
+# Copyright (c) 2020 Friedt Professional Engineering Services, Inc
+#
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig ZEPHYR_EXAMPLE_MODULE
+	bool "Zephyr Example Module"
+	help
+	  This option enables Zephyr Example Module support.
+
+if ZEPHYR_EXAMPLE_MODULE
+
+module = ZEPHYR_EXAMPLE_MODULE
+module-str = zephyr_example_module
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # ZEPHYR_EXAMPLE_MODULE
