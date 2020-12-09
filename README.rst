@@ -9,14 +9,14 @@ Badges indicating build status and test coverage appear here.
 
 Overview
 ********
-This repository contains an example module for the `Zephyr Real-Time Operating System <https://zephyrproject.org/>`.
+This repository contains an example module for the `Zephyr Real-Time Operating System <https://zephyrproject.org/>`_.
 
-The functionality of the example module itself is quite trivial - all that it does is calculate and print the `Fibonacci Sequence <https://en.wikipedia.org/wiki/Fibonacci_number/>`, updating once per second.
+The functionality of the example module itself is quite trivial - all that it does is calculate and print the `Fibonacci Sequence <https://en.wikipedia.org/wiki/Fibonacci_number/>`_, updating once per second.
 
 Requirements
 ************
 
-Please follow the steps outlined in Zephyr's `Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/index.html>` to ensure that all of the required tools are present in the environment.
+Please follow the steps outlined in Zephyr's `Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/index.html>`_ to ensure that all of the required tools are present in the environment.
 
 Usage
 *****
@@ -45,7 +45,7 @@ To build the latest development version of this module, start with the following
 
    west init -m https://github.com/cfriedt/zephyr-example-module.git zephyrproject
 
-Otherwise, to build a version of this module for a specific Zephyr LTS Release, for example 2.4.0, start with the following line.
+Otherwise, to build a version of this module for a specific `Zephyr LTS Release <https://www.zephyrproject.org/developer-resources/#current-release>`_, for example 2.4.0, start with the following line.
 
 .. code-block:: bash
 
@@ -76,26 +76,27 @@ Enter the following commands to run the test suite with the ``native_posix`` boa
 Details
 *******
 
-This example module provides a number of different templates that to fulfill the `Zephyr Module Requirements <https://docs.zephyrproject.org/latest/guides/modules.html>`:
+This example module provides a number of different templates that to fulfill the `Zephyr Module Requirements <https://docs.zephyrproject.org/latest/guides/modules.html>`_:
 
 * a *module.yml* file in a ``zephyr/`` directory
 * a top-level ``README.rst`` (this document)
 * additional documentation in the ``doc/`` directory
-* `CI <https://en.wikipedia.org/wiki/Continuous_integration>` via `GitHub Actions <https://docs.github.com/en/free-pro-team@latest/actions>` under ``.github/actions/module.yml
+* `CI <https://en.wikipedia.org/wiki/Continuous_integration>`_ via `GitHub Actions <https://docs.github.com/en/free-pro-team@latest/actions>`_ under ``.github/workflows/module.yml``
 * a ``CODEOWNERS`` file to keep track of which contributors are responsible for code review
 * a ``LICENSE`` file that referse to a permissive, OSI-compliant license
 * build files, including ``CMakeLists.txt`` and ``Kconfig``
 * a ``west.yml`` file that refers to a specific release of the Zephyr Project RTOS
 * an ``include/`` directory at the root of the repository for public API (which may or may not be required)
-* a ``subsys/fibonacci`` directory for example code (other suitable locations could be under ``drivers``, or ``lib``)
+* a ``subsys/`` directory for example code (other suitable locations could be under ``drivers``, or ``lib``)
 * a ``tests/`` directory for tests
 * a ``samples/`` directory for samples
-* a ``dts/`` directory that contains `Device Tree <https://docs.zephyrproject.org/latest/guides/dts/index.html>` bindings (typically only required for hardware configuration)
+* a ``dts/`` directory that contains `Device Tree <https://docs.zephyrproject.org/latest/guides/dts/index.html>`_ bindings (typically only required for hardware configuration)
 * a ``scripts/`` directory that contains scripts for CI (which may or may not be required)
 
-The directory and file structure of the example module is as shown below (generated with `tree https://linux.die.net/man/1/tree`).
+The directory and file structure of the example module is as shown below (generated with `tree <https://linux.die.net/man/1/tree>`_).
 
 ::
+
     .
     ├── CMakeLists.txt
     ├── CODEOWNERS
@@ -138,3 +139,4 @@ For more information on configuring a GitHub repository to comply with Zephyr ex
 For more information on fulfilling Continuous Integration requirements, see :ref:`continuous_integration_requirements`.
 
 For more information on Zephyr's Devicetree implementation, see `Devicetree Guide <https://docs.zephyrproject.org/latest/guides/dts/index.html>`.
+
