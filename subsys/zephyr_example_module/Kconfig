@@ -13,6 +13,6 @@ if ZEPHYR_EXAMPLE_MODULE
 
 module = ZEPHYR_EXAMPLE_MODULE
 module-str = zephyr_example_module
-#source "subsys/logging/Kconfig.template.log_config"
+source "subsys/logging/Kconfig.template.log_config"
 
 endif # ZEPHYR_EXAMPLE_MODULE
