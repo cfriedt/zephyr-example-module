@@ -1,4 +1,4 @@
-name: Zephyr Example Module CI
+name: CI
 
 on:
   push:

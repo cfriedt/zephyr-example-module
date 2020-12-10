@@ -5,7 +5,7 @@ Zephyr Example Module
 
 Build Status
 ************
-Badges indicating build status and test coverage appear here.
+.. image:: https://github.com/cfriedt/zephyr-example-module/workflows/CI/badge.svg
 
 Overview
 ********
