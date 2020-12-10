@@ -10,12 +10,18 @@
 #include <stdint.h>
 
 /**
+ * @brief The minimum input value for valid output.
+ *
+ * This implementation uses zero-indexing.
+ */
+#define ZEPHYR_EXAMPLE_MODULE_MIN 0
+
+/**
  * @brief The maximum input value for valid output.
  *
  * @see <a href="https://stackoverflow.com/questions/15065088/upper-limits-for-fibonnacci">Upper Limits for Fibonacci</a>
  */
-#define ZEPHYR_EXAMPLE_MODULE_MIN 0
-#define ZEPHYR_EXAMPLE_MODULE_MAX 48
+#define ZEPHYR_EXAMPLE_MODULE_MAX 47
 
 #ifdef __cplusplus
 extern "C" {

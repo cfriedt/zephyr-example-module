@@ -15,14 +15,28 @@ static inline int fib(int n)
 
 static void test_zephyr_example_module(void)
 {
-	zassert_equal(0, fib(0));
-	zassert_equal(1, fib(1));
-	zassert_equal(1, fib(2));
-	zassert_equal(2, fib(3));
-	zassert_equal(3, fib(4));
-	zassert_equal(5, fib(5));
-	zassert_equal(8, fib(6));
-	zassert_equal(13, fib(7));
+	static const int n_exp[] = {
+		-1, -EINVAL,
+		48, -E2BIG,
+		0, 0,
+		1, 1,
+		2, 1,
+		3, 2,
+		4, 3,
+		5, 5,
+		6, 8,
+		7, 13,
+		47, 2971215073,
+	};
+	int i;
+	int act;
+
+	for(i = 0; i < ARRAY_SIZE(n_exp); i += 2) {
+		act = fib(n_exp[i]);
+		zassert_equal(n_exp[i + 1], act,
+			"fib(%d): exp: %d: act: %d",
+			n_exp[i], n_exp[i + 1], act);
+	}
 }
 
 void test_main(void)

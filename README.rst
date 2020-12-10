@@ -97,42 +97,41 @@ The directory and file structure of the example module is as shown below (genera
 
 ::
 
-    .
-    ├── CMakeLists.txt
-    ├── CODEOWNERS
-    ├── dts
-    │   └── bindings
-    │       └── zephyr_example_module
-    │           └── zephyr,zephyr-example-module.yaml
-    ├── include
-    │   └── zephyr_example_module.h
-    ├── Kconfig
-    ├── LICENSE
-    ├── README.rst
-    ├── samples
-    │   └── zephyr_example_module
-    │       ├── CMakeLists.txt
-    │       ├── README.rst
-    │       ├── sample.yaml
-    │       └── src
-    │           └── main.c
-    ├── scripts
-    ├── subsys
-    │   └── zephyr_example_module
-    │       ├── CMakeLists.txt
-    │       └── Kconfig
-    ├── tests
-    │   └── zephyr_example_module
-    │       ├── CMakeLists.txt
-    │       ├── src
-    │       │   └── main.c
-    │       └── testcase.yaml
-    ├── west.yml
-    └── zephyr
+     .
+     ├── CMakeLists.txt
+     ├── CODEOWNERS
+     ├── dts
+     │   └── bindings
+     │       └── zephyr_example_module
+     │           └── zephyr,zephyr-example-module.yaml
+     ├── include
+     │   └── zephyr_example_module.h
+     ├── Kconfig
+     ├── LICENSE
+     ├── README.rst
+     ├── samples
+     │   └── zephyr_example_module
+     │       ├── CMakeLists.txt
+     │       ├── prj.conf
+     │       ├── README.rst
+     │       ├── sample.yaml
+     │       └── src
+     │           └── main.c
+     ├── subsys
+     │   └── zephyr_example_module
+     │       ├── CMakeLists.txt
+     │       ├── Kconfig
+     │       └── zephyr_example_module.c
+     ├── tests
+     │   └── zephyr_example_module
+     │       ├── CMakeLists.txt
+     │       ├── prj.conf
+     │       ├── src
+     │       │   └── main.c
+     │       └── testcase.yaml
+     ├── west.yml
+     └── zephyr
         └── module.yml
-    
-    14 directories, 18 files
-
 
 For more information on configuring a GitHub repository to comply with Zephyr external module requirements, see :ref:`configure_github_repository`.
 
