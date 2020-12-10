@@ -41,3 +41,20 @@ int zephyr_example_module_fib(int n)
 
 	return r;
 }
+
+static void zephyr_example_module_entry(void *arg0, void *arg1, void *arg2)
+{
+	int n2 = 0;
+	int n1 = 1;
+	int r;
+	printk("0\n1\n");
+	for(int i = 2; i < 8; ++i, n2 = n1, n1 = r) {
+		r = n2 + n1;
+		printk("%d\n", r);
+	}
+}
+
+K_THREAD_DEFINE(zephyr_example_module_thread, 512,
+	zephyr_example_module_entry, NULL, NULL, NULL,
+	CONFIG_APPLICATION_INIT_PRIORITY, 0, 0);
+
