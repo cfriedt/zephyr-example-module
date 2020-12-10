@@ -42,6 +42,7 @@ int zephyr_example_module_fib(int n)
 	return r;
 }
 
+#ifndef CONFIG_ZTEST
 static void zephyr_example_module_entry(void *arg0, void *arg1, void *arg2)
 {
 	int n2 = 0;
@@ -57,4 +58,4 @@ static void zephyr_example_module_entry(void *arg0, void *arg1, void *arg2)
 K_THREAD_DEFINE(zephyr_example_module_thread, 512,
 	zephyr_example_module_entry, NULL, NULL, NULL,
 	CONFIG_APPLICATION_INIT_PRIORITY, 0, 0);
-
+#endif /* CONFIG_ZTEST */
