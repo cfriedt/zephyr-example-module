@@ -11,7 +11,7 @@ Overview
 ********
 This repository contains an example module for the `Zephyr Real-Time Operating System <https://zephyrproject.org/>`_.
 
-The functionality of the example module itself is quite trivial - all that it does is calculate and print the `Fibonacci Sequence <https://en.wikipedia.org/wiki/Fibonacci_number/>`_, updating once per second.
+The functionality of the example module itself is quite trivial - all that it does is calculate and print the `Fibonacci Sequence <https://en.wikipedia.org/wiki/Fibonacci_number/>`_.
 
 Requirements
 ************
@@ -23,16 +23,16 @@ Usage
 
 This repository is designed to be cloned, modified, and then pushed to a separate repository with a minimal number of steps.
 
-To achieve that, we first set up a few environment variables (please modify ``<values>`` as necessary, removing the leading ``<`` and trailing ``>``).
-
 .. code-block:: bash
-    export ORGANIZATION=<github account>
-    export PROJECT_DASH=<github project name with dashes>
-    export PROJECT_UNDERSCORE=${PROJECT_DASH//-/_}
-    export PROJECT_NAME="<The Module Name>"
 
-.. code-block:: bash
+    # clone the template repository
     git clone https://github.com/cfriedt/zephyr-example-module.git
+    # rename relevant directories & files. substitute strings throughout project
+    ./zephyr-example-module/scripts/bootstrap.py -u adent -n "Arthur Dent" -p babel-fish -n "Babel Fish" zephyr-example-module
+    # source directory is already renamed
+    # main branch and remote have already been set up
+    # no commits have been made
+    cd babel-fish
 
 Building and Running
 ********************
@@ -97,45 +97,49 @@ The directory and file structure of the example module is as shown below (genera
 
 ::
 
-     .
-     ├── CMakeLists.txt
-     ├── CODEOWNERS
-     ├── dts
-     │   └── bindings
-     │       └── zephyr_example_module
-     │           └── zephyr,zephyr-example-module.yaml
-     ├── include
-     │   └── zephyr_example_module.h
-     ├── Kconfig
-     ├── LICENSE
-     ├── README.rst
-     ├── samples
-     │   └── zephyr_example_module
-     │       ├── CMakeLists.txt
-     │       ├── prj.conf
-     │       ├── README.rst
-     │       ├── sample.yaml
-     │       └── src
-     │           └── main.c
-     ├── subsys
-     │   └── zephyr_example_module
-     │       ├── CMakeLists.txt
-     │       ├── Kconfig
-     │       └── zephyr_example_module.c
-     ├── tests
-     │   └── zephyr_example_module
-     │       ├── CMakeLists.txt
-     │       ├── prj.conf
-     │       ├── src
-     │       │   └── main.c
-     │       └── testcase.yaml
-     ├── west.yml
-     └── zephyr
+    .
+    ├── .github
+    │   └── workflows
+    │       └── module.yml
+    ├── CMakeLists.txt
+    ├── CODEOWNERS
+    ├── dts
+    │   └── bindings
+    │       └── zephyr_example_module
+    │           └── zephyr,zephyr-example-module.yaml
+    ├── include
+    │   └── zephyr_example_module.h
+    ├── Kconfig
+    ├── LICENSE
+    ├── README.rst
+    ├── samples
+    │   └── zephyr_example_module
+    │       ├── CMakeLists.txt
+    │       ├── prj.conf
+    │       ├── README.rst
+    │       ├── sample.yaml
+    │       └── src
+    │           └── main.c
+    ├── scripts
+    │   └── bootstrap.py
+    ├── subsys
+    │   └── zephyr_example_module
+    │       ├── CMakeLists.txt
+    │       ├── Kconfig
+    │       └── zephyr_example_module.c
+    ├── tests
+    │   └── zephyr_example_module
+    │       ├── CMakeLists.txt
+    │       ├── prj.conf
+    │       ├── src
+    │       │   └── main.c
+    │       └── testcase.yaml
+    ├── west.yml
+    └── zephyr
         └── module.yml
 
 For more information on configuring a GitHub repository to comply with Zephyr external module requirements, see :ref:`configure_github_repository`.
 
 For more information on fulfilling Continuous Integration requirements, see :ref:`continuous_integration_requirements`.
 
-For more information on Zephyr's Devicetree implementation, see `Devicetree Guide <https://docs.zephyrproject.org/latest/guides/dts/index.html>`.
-
+For more information on Zephyr's Devicetree implementation, see `Devicetree Guide <https://docs.zephyrproject.org/latest/guides/dts/index.html>`_.
